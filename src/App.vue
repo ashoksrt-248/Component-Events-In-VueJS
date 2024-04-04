@@ -1,13 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <h1> Component Events</h1>
+    <button @click="showPopup = true">Show Popup</button>
+    <Popup  v-show="showPopup" @close="showPopup = false"/>
   </div>
 </template>
 
 <script>
+import Popup from './components/Popup.vue';
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    Popup,
+  },
+  data(){
+    return{
+      showPopup:false
+    }
+  }
 }
 </script>
 
@@ -20,4 +30,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+button{background-color:teal;width: 140px;height: 40px;border: 2px solid tomato;border-radius: 5px;}
 </style>
